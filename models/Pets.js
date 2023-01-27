@@ -26,6 +26,9 @@ Pets.init(
       type: DataTypes.STRING,
       allowNull: false,
     },
+    image_data: {
+      type: DataTypes.BLOB("long")
+    },
     user_id: {
       type: DataTypes.INTEGER,
       references: {
