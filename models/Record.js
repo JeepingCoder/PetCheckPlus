@@ -9,12 +9,8 @@ Record.init(
       type: DataTypes.INTEGER,
       allowNull: false,
       autoIncrement: true,
-      references: {
-        model: 'pet',
-        key: 'id',
-      },
     },
-    chip_id: {
+    chip_number: {
       type: DataTypes.INTEGER,
     },
     birth_date: {
@@ -29,6 +25,13 @@ Record.init(
     sterilized: {
       type: DataTypes.BOOLEAN,
     },
+    animal_id: {
+      type: DataTypes.INTEGER,
+      references: {
+        model: 'pet',
+        key: 'id',
+      },
+    }
   },
   {
     sequelize,
