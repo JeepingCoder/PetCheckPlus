@@ -28,7 +28,7 @@ Record.init(
     animal_id: {
       type: DataTypes.INTEGER,
       references: {
-        model: 'pet',
+        model: 'pets',
         key: 'id',
       },
     }
