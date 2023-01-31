@@ -32,9 +32,16 @@ User.init(
       type: DataTypes.STRING,
       allowNull: false,
       validate: {
-          len: [6],
+        len: [6],
       },
-  },
+    },
+    phone_number: {
+      type: DataTypes.STRING,
+      allowNull: false,
+      validate: {
+        isNumeric: true,
+      },
+    },
   },
   {
     hooks: {
