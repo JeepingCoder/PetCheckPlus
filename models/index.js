@@ -1,5 +1,6 @@
 const User = require('./User');
 const Pets = require('./Pets');
+const Record = require('./Record');
 
 User.hasMany(Pets, {
   foreignKey: 'user_id',
@@ -19,4 +20,4 @@ Record.belongsTo(Pets, {
   foreignKey: "pets_id",
 });
 
-module.exports = { User, Pets };
+module.exports = { User, Pets, Record };
