@@ -6,6 +6,7 @@ class Record extends Model {}
 Record.init(
   {
     id: {
+      primaryKey: true,
       type: DataTypes.INTEGER,
       allowNull: false,
       autoIncrement: true,
@@ -28,17 +29,17 @@ Record.init(
     pets_id: {
       type: DataTypes.INTEGER,
       references: {
-        model: 'pets',
-        key: 'id',
+        model: "pets",
+        key: "id",
       },
-    }
+    },
   },
   {
     sequelize,
     timestamps: false,
     freezeTableName: true,
     underscored: true,
-    modelName: 'record',
+    modelName: "record",
   }
 );
 
