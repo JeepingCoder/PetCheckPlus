@@ -1,15 +1,15 @@
 const router = require('express').Router();
-const {User, Pets, Record} = require('../../models');
+const {User, Pet, Record} = require('../../models');
 const withAuth = require('../../utils/auth');
 
 // Get all records
-router.get("/", withAuth, async (req, res) => {
+router.get("/", /* withAuth, */ async (req, res) => {
   // find all records
   try {
     const recordData = await Tag.findAll({
     
       include: [
-        { model: Pets },
+        { model: Pet },
         { model: User },
       ]
     });
@@ -20,13 +20,13 @@ router.get("/", withAuth, async (req, res) => {
 });
 
 // Get one record
-router.get("/:id", withAuth, async (req, res) => {
+router.get("/:id", /* withAuth, */ async (req, res) => {
   
   try {
     const recordData = await Record.findByPk(req.params.id, {
       // be sure to include its associated Product data
       include: [
-        { model: Pets },
+        { model: Pet },
         { model: User },
       ]
     });
@@ -42,7 +42,7 @@ router.get("/:id", withAuth, async (req, res) => {
 });
 
 // Create record
-router.post('/', withAuth, async (req, res) => {
+router.post('/', /* withAuth, */ async (req, res) => {
     try {
       const newRecord = await Record.create({
         ...req.body,
@@ -56,7 +56,7 @@ router.post('/', withAuth, async (req, res) => {
   });
 
   // Update record
-  router.put("/:id", withAuth, async (req, res) => {
+  router.put("/:id", /* withAuth, */ async (req, res) => {
     // update a category by its `id` value
     try {
       const recordData = await Record.update(req.body, {
@@ -74,7 +74,7 @@ router.post('/', withAuth, async (req, res) => {
   });
 
   // Delete Record
-  router.delete('/:id', withAuth, async (req, res) => {
+  router.delete('/:id', /* withAuth, */ async (req, res) => {
     try {
       const recordData = await Record.destroy({
         where: {
@@ -88,7 +88,7 @@ router.post('/', withAuth, async (req, res) => {
         return;
       }
   
-      res.status(200).json(petData);
+      res.status(200).json(recordData);
     } catch (err) {
       res.status(500).json(err);
     }
