@@ -1,9 +1,9 @@
 const router = require('express').Router();
-const { User, Pets, Record } = require('../../models');
+const { User, Pet, Record } = require('../../models');
 const withAuth = require('../../utils/auth');
 
 // Get all users 
-router.get('/', withAuth, async (req, res) => {
+router.get('/', /* withAuth, */ async (req, res) => {
   try {
     const userData = await User.findAll({
       attributes: { exclude: ['password'] },
@@ -21,12 +21,12 @@ router.get('/', withAuth, async (req, res) => {
 });
 
 // Get one user
-router.get("/:id", withAuth, async (req, res) => {
+router.get("/:id", /* withAuth, */ async (req, res) => {
  
   try {
     const userData = await User.findByPk(req.params.id, {
       include: [
-        {model: Pets },
+        {model: Pet },
         {model: Record},
       ]
     });
@@ -102,7 +102,7 @@ router.post('/logout', (req, res) => {
 });
 
 // Update user
-router.put("/:id", withAuth, async (req, res) => {
+router.put("/:id", /* withAuth, */ async (req, res) => {
   // update a category by its `id` value
   try {
     const userData = await User.update(req.body, {
@@ -120,7 +120,7 @@ router.put("/:id", withAuth, async (req, res) => {
 });
 
 // Delete user
-router.delete("/:id", withAuth, async (req, res) => {
+router.delete("/:id", /* withAuth, */ async (req, res) => {
   // delete a category by its `id` value
   try {
     const userData = await User.destroy({

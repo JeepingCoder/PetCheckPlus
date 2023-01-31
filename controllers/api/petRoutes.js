@@ -1,12 +1,13 @@
 const router = require('express').Router();
-const { Pets, User, Record } = require('../../models');
+const { Pet, User, Record } = require('../../models');
 const withAuth = require('../../utils/auth');
 
 // Get all pets
-router.get("/", withAuth, async (req, res) => {
+
+router.get("/", /* withAuth, */ async (req, res) => {
   // find all pets
   try {
-    const petData = await Pets.findAll({
+    const petData = await Pet.findAll({
       // be sure to include its associated Category and Tag data
       include: [
         { model: User },
@@ -20,10 +21,10 @@ router.get("/", withAuth, async (req, res) => {
 });
 
 // Get one pet
-router.get("/:id", withAuth, async (req, res) => {
+router.get("/:id", /* withAuth, */ async (req, res) => {
   // find a single pet by its `id`
   try {
-    const petData = await Pets.findByPk(req.params.id, {
+    const petData = await Pet.findByPk(req.params.id, {
      
       include: [
         { model: User },
@@ -42,9 +43,9 @@ router.get("/:id", withAuth, async (req, res) => {
 
 
 // Add Pet
-router.post('/', withAuth, async (req, res) => {
+router.post('/', /* withAuth, */ async (req, res) => {
   try {
-    const newPet = await Pets.create({
+    const newPet = await Pet.create({
       ...req.body,
       user_id: req.session.user_id,
     });
@@ -56,10 +57,10 @@ router.post('/', withAuth, async (req, res) => {
 });
 
 // Update Pet
-router.put("/:id", withAuth, async (req, res) => {
+router.put("/:id", /* withAuth, */ async (req, res) => {
   // update a category by its `id` value
   try {
-    const petData = await Pets.update(req.body, {
+    const petData = await Pet.update(req.body, {
       where: {
         id: req.params.id,
       },
@@ -75,9 +76,9 @@ router.put("/:id", withAuth, async (req, res) => {
 
 
 // Delete Pet
-router.delete('/:id', withAuth, async (req, res) => {
+router.delete('/:id', /* withAuth, */ async (req, res) => {
   try {
-    const petData = await Pets.destroy({
+    const petData = await Pet.destroy({
       where: {
         id: req.params.id,
         user_id: req.session.user_id,
