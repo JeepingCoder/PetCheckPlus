@@ -26,7 +26,7 @@ Record.init(
     sterilized: {
       type: DataTypes.BOOLEAN,
     },
-    animal_id: {
+    pets_id: {
       type: DataTypes.INTEGER,
       references: {
         model: 'pets',
