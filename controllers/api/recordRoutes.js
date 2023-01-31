@@ -6,11 +6,10 @@ const withAuth = require('../../utils/auth');
 router.get("/", /* withAuth, */ async (req, res) => {
   // find all records
   try {
-    const recordData = await Tag.findAll({
+    const recordData = await Record.findAll({
     
       include: [
         { model: Pet },
-        { model: User },
       ]
     });
     res.status(200).json(recordData);
@@ -27,7 +26,6 @@ router.get("/:id", /* withAuth, */ async (req, res) => {
       // be sure to include its associated Product data
       include: [
         { model: Pet },
-        { model: User },
       ]
     });
     if (!recordData) {
@@ -79,7 +77,7 @@ router.post('/', /* withAuth, */ async (req, res) => {
       const recordData = await Record.destroy({
         where: {
           id: req.params.id,
-          user_id: req.session.user_id,
+          pet_id: req.session.pet_id,
         },
       });
   
