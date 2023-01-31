@@ -1,6 +1,47 @@
 const router = require('express').Router();
-const { User } = require('../../models');
+const { User, Pets, Record } = require('../../models');
+const withAuth = require('../../utils/auth');
 
+// Get all users 
+router.get('/', withAuth, async (req, res) => {
+  try {
+    const userData = await User.findAll({
+      attributes: { exclude: ['password'] },
+      order: [['name', 'ASC']],
+    });
+
+    // Serialize user data so templates can read it
+    const users = userData.map((user) => user.get({ plain: true }));
+
+    // Pass serialized data into Handlebars.js template
+    res.render('homepage', { users });
+  } catch (err) {
+    res.status(500).json(err);
+  }
+});
+
+// Get one user
+router.get("/:id", withAuth, async (req, res) => {
+ 
+  try {
+    const userData = await User.findByPk(req.params.id, {
+      include: [
+        {model: Pets },
+        {model: Record},
+      ]
+    });
+
+    if (!userData) {
+      res.status(404).json({ message: "Id not found" });
+      return;
+    }
+    res.status(200).json(userData);
+  } catch (err) {
+    res.status(500).json(err);
+  }
+});
+
+// Create new user
 router.post('/', async (req, res) => {
   try {
     const userData = await User.create(req.body);
@@ -16,6 +57,7 @@ router.post('/', async (req, res) => {
   }
 });
 
+// Login
 router.post('/login', async (req, res) => {
   try {
     const userData = await User.findOne({ where: { email: req.body.email } });
@@ -48,6 +90,7 @@ router.post('/login', async (req, res) => {
   }
 });
 
+// Logout
 router.post('/logout', (req, res) => {
   if (req.session.logged_in) {
     req.session.destroy(() => {
@@ -55,6 +98,44 @@ router.post('/logout', (req, res) => {
     });
   } else {
     res.status(404).end();
+  }
+});
+
+// Update user
+router.put("/:id", withAuth, async (req, res) => {
+  // update a category by its `id` value
+  try {
+    const userData = await User.update(req.body, {
+      where: {
+        id: req.params.id,
+      },
+    });
+    if (!userData) {
+      res.status(404).json({ message: "Id not found" });
+      return;
+    }
+  } catch (err) {
+    res.status(500).json(err);
+  }
+});
+
+// Delete user
+router.delete("/:id", withAuth, async (req, res) => {
+  // delete a category by its `id` value
+  try {
+    const userData = await User.destroy({
+      where: {
+        id: req.params.id,
+      },
+    });
+    if (!userData) {
+      res.status(404).json({ message: "Id not found" });
+      return;
+    }
+
+    res.status(200).json(userData);
+  } catch (err) {
+    res.status(500).json(err);
   }
 });
 
