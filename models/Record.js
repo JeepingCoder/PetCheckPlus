@@ -6,6 +6,7 @@ class Record extends Model { }
 Record.init(
   {
     id: {
+      primaryKey: true,
       type: DataTypes.INTEGER,
       allowNull: false,
       primaryKey: true,
@@ -29,8 +30,8 @@ Record.init(
     pets_id: {
       type: DataTypes.INTEGER,
       references: {
-        model: 'pets',
-        key: 'id',
+        model: "pets",
+        key: "id",
       },
     },
   },
