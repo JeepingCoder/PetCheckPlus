@@ -1,17 +1,18 @@
 const { Model, DataTypes } = require('sequelize');
 const sequelize = require('../config/connection');
 
-class Record extends Model {}
+class Record extends Model { }
 
 Record.init(
   {
     id: {
       type: DataTypes.INTEGER,
       allowNull: false,
+      primaryKey: true,
       autoIncrement: true,
     },
     chip_number: {
-      type: DataTypes.INTEGER,
+      type: DataTypes.STRING,
     },
     birth_date: {
       type: DataTypes.DATE,
@@ -31,14 +32,14 @@ Record.init(
         model: 'pets',
         key: 'id',
       },
-    }
+    },
   },
   {
     sequelize,
     timestamps: false,
     freezeTableName: true,
     underscored: true,
-    modelName: 'record',
+    modelName: 'records',
   }
 );
 
