@@ -37,7 +37,7 @@ User.init(
     },
     phone_number: {
       type: DataTypes.STRING,
-      allowNull: false,
+      allowNull: true,
       validate: {
         isNumeric: true,
       },
