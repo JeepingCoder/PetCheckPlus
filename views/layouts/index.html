@@ -1,60 +1,80 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <script src ="https://cdn.tailwindcss.com"></script>
-   <link rel="stylesheet" href ="./public/css/style.css">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel=" stylesheet" href="./public/css/style.css" />
     <title>Pet Check Plus</title>
-</head>
+  </head>
+  <body>
+    <div
+      class="flex min-h-full items-center justify-center py-12 px-4 sm:px-6 lg:px-8"
+    >
+      <div class="w-full max-w-md space-y-8">
+        <header>
+          <nav
+            class="px-2 sm:px-4 py-2.5 fixed w-full z-20 top-0 left-0 border-b border-gray-600"
+          >
+            <div
+              class="container flex flex-wrap items-center justify-between mx-auto"
+            >
+              <a href="/" class="flex items-center">
+                <img
+                  src="https://www.freepnglogos.com/uploads/dog-png/png-puppy-dog-transparent-puppy-dog-images-pluspng-32.png"
+                  class="h-6 mr-3 sm:h-9"
+                  alt="Picture of Puppy"
+                />
+                <span
+                  class="self-center text-3xl font-semibold whitespace-nowrap text-blue-500"
+                  >Pet Check Plus</span
+                >
+              </a>
+              <div
+                class="items-center justify-between hidden w-full md:flex md:w-auto md:order-1"
+                id="navbar-sticky"
+              >
+                <ul
+                  class="flex flex-col p-4 mt-4 border rounded-lg bg-gray-50 md:flex-row md:space-x-8 md:mt-0 md:text-med md:font-medium md:border-0"
+                >
+                  <li>
+                    <a
+                      href="/login"
+                      class="block py-2 pl-3 pr-4 text-blue-500 rounded hover:bg-gray-100 md:hover:bg-transparent md:p-0 md:dark:hover:text-gray-400 dark:text-blue-500 dark:hover:bg-gray-700"
+                      sans-sarif="page"
+                      >Log In</a
+                    >
+                  </li>
 
-<body>
-    <div class="flex min-h-full items-center justify-center py-12 px-4 sm:px-6 lg:px-8">
-        <div class="w-full max-w-md space-y-8">
-          
-          <img class="mx-auto h-20.5 w-auto" src="https://www.freepnglogos.com/uploads/dog-png/png-puppy-dog-transparent-puppy-dog-images-pluspng-32.png" alt="Pet check plus logo ">
-          <h2 class="mt-6 text-center text-3xl font-bold tracking-tight text-blue-500">Welcome to Pet Check Plus</h2>
-          <p class="mt-2 text-center text-sm text-blue-500"><a href="#" class="font-medium text-blue-500 hover:text-indigo-500">Your Source For All Your Pet Documentation</a></p>
-        </div>
-    </div>
-    <div class = "grid grid-cols-2">
-      <div class = "col">
-      <form class="mt-8 space-y-6" action="#" method="POST">
-        <input type="hidden" name="remember" value="true">
-        <div class="-space-y-px rounded-md shadow-sm">
-          <div class="align items-left p-2">
-            <label for="email-login">Email</label>
-            <input id="email-login" name="email" type="email" autocomplete="email" required class="relative block w-full appearance-none rounded border border-gray-300 px-3 py-2 text-gray-900 placeholder-gray-500 focus:z-10 focus:border-indigo-500 focus:outline-none focus:ring-indigo-500 sm:text-sm">
-            <label for="password-login">Password</label>
-            <input id="password-login" name="password-login" type="password-login" required class="relative block w-full appearance-none rounded border border-gray-300 px-3 py-2 text-gray-900 placeholder-gray-500 focus:z-10 focus:border-indigo-500 focus:outline-none focus:ring-indigo-500 sm:text-sm">
-          </div>
-        </form>
-          <div class="text-lg p-2">
-            <a href="#" class="border-2 rounded  border-neutral-400  bg-blue-400 font-medium text-neutral-700 hover:text-indigo-600">Log In</a>
-          </div>
-          </div>
-        </div>
-        
-        
-
-        <form class="p-2">
-            <label for="email-signup">Email</label>
-              <input id="email-signup" name="email-signup" type="email-signup" autocomplete="email-signup" required class="relative block w-full appearance-none rounded border border-gray-300 px-3 py-2 text-gray-900 placeholder-gray-500 focus:z-10 focus:border-indigo-500 focus:outline-none focus:ring-indigo-500 sm:text-sm">
-                      
-            <label for="password-signup">Password</label>
-              <input id="password-signup" name="password-signup" type="password-signup"  required class="relative block w-full appearance-none rounded border border-gray-300 px-3 py-2 text-gray-900 placeholder-gray-500 focus:z-10 focus:border-indigo-500 focus:outline-none focus:ring-indigo-500 sm:text-sm" >
-                   
-            <label for="name-signup">Name</label>
-              <input id="name-signup" name="name-signup" type="FirstName"  required class="relative block w-full appearance-none rounded border border-gray-300 px-3 py-2 text-gray-900 placeholder-gray-500 focus:z-10 focus:border-indigo-500 focus:outline-none focus:ring-indigo-500 sm:text-sm">
-            
-              <div class="text-lg p-2">
-                <a href="#" class="border-2 rounded  border-neutral-400  bg-blue-400 font-medium text-neutral-700 hover:text-indigo-600">Sign Up</a>
+                  <li>
+                    <a
+                      href="/profile"
+                      class="block py-2 pl-3 pr-4 text-blue-500 rounded hover:bg-gray-100 md:hover:bg-transparent md:p-0 md:dark:hover:text-gray-400 dark:text-blue-500 dark:hover:bg-gray-700"
+                      >Profile</a
+                    >
+                  </li>
+                </ul>
               </div>
             </div>
-        </form>  
-        </div>      
-        
-        
+          </nav>
+        </header>
+      </div>
+    </div>
+
+    <main class="container container-fluid mt-5">
+      <!-- Render the sub layout -->
+      {{{ body }}}
+    </main>
+    <footer>
+      
+    </footer>
+  </div>
+
+  <!-- Render script for logged in users only -->
+  {{#if logged_in}}
+  <script src="/js/logout.js"></script>
+  {{/if}}
 </body>
+
 </html>
