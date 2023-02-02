@@ -1,24 +1,14 @@
-<!-- Loop over each object in the projects array -->
-{{#each projects as |project| }}
-<div class="row mb-4 project">
-  <div class="col-md-5">
-    <h2>
-      <!-- Call helper function with triple brackets to render the emoji span as HTML -->
-      {{{get_emoji}}}
-      <a href="/project/{{project.id}}">{{project.name}}</a>
-    </h2>
-    <p>
-      <span for="img" aria-label="money">💲</span>
-      <!-- Pass needed_funding value to the helper function -->
-      <span class="dollar-amount">{{format_amount project.needed_funding}}</span>
-      needed!
-    </p>
-    <p>Created by {{project.user.name}} on {{format_date project.date_created}}</p>
-  </div>
-  <div class="col-md-7">
-    <p>
-      {{project.description}}
-    </p>
+<div class="container mx-auto">
+  <div class="flex justify-around">
+    <img src="../../resources/static/assets/animal-group.jpg" alt="happy animals" class="h-auto w-3/5">
   </div>
 </div>
-{{/each}}
+
+<section class="mt-5 mx-64">
+  <h1 class="text-center text-3xl font-semibold whitespace-nowrap text-blue-500">Welcome to Pet Check Plus!</h1>
+  <p class="mt-4 text-center text-2xl font-semibold text-blue-500">Keep all of your pet's important documents in one
+    place and never forget
+    when their next check-up is due. Simply add your pet's information and keep track of their vaccination
+    records, vet appointments, and more!</p>
+  <p class="mt-4 text-center text-2xl font-semibold text-blue-500">Login to get started!</p>
+</section>
