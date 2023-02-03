@@ -22,12 +22,12 @@ router.get('/', /* withAuth, */ async (req, res) => {
 
 // Get one user
 router.get("/:id", /* withAuth, */ async (req, res) => {
- 
+
   try {
     const userData = await User.findByPk(req.params.id, {
       include: [
-        {model: Pet },
-        {model: Record},
+        { model: Pet },
+        { model: Record },
       ]
     });
 
@@ -57,6 +57,20 @@ router.post('/', async (req, res) => {
   }
 });
 
+// route to update profile
+router.put('/update/:id', async (req, res) => {
+  try {
+    const updatedPost = await Post.update(req.body, {
+      where: {
+        id: req.params.id,
+      },
+    })
+    res.status(200).json(updatedPost);
+  } catch (err) {
+    res.status(400).json(err);
+  }
+});
+
 // Login
 router.post('/login', async (req, res) => {
   try {
@@ -81,7 +95,7 @@ router.post('/login', async (req, res) => {
     req.session.save(() => {
       req.session.user_id = userData.id;
       req.session.logged_in = true;
-      
+
       res.json({ user: userData, message: 'You are now logged in!' });
     });
 
@@ -101,23 +115,23 @@ router.post('/logout', (req, res) => {
   }
 });
 
-// Update user
-router.put("/:id", /* withAuth, */ async (req, res) => {
-  // update a category by its `id` value
-  try {
-    const userData = await User.update(req.body, {
-      where: {
-        id: req.params.id,
-      },
-    });
-    if (!userData) {
-      res.status(404).json({ message: "Id not found" });
-      return;
-    }
-  } catch (err) {
-    res.status(500).json(err);
-  }
-});
+// // Update user
+// router.put("/:id", /* withAuth, */ async (req, res) => {
+//   // update a category by its `id` value
+//   try {
+//     const userData = await User.update(req.body, {
+//       where: {
+//         id: req.params.id,
+//       },
+//     });
+//     if (!userData) {
+//       res.status(404).json({ message: "Id not found" });
+//       return;
+//     }
+//   } catch (err) {
+//     res.status(500).json(err);
+//   }
+// });
 
 // Delete user
 router.delete("/:id", /* withAuth, */ async (req, res) => {

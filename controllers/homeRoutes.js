@@ -53,12 +53,12 @@ router.get('/pet/:id', async (req, res) => {
 });
 
 // Use withAuth middleware to prevent access to route
-router.get('/profile', /* withAuth, */ async (req, res) => {
+router.get('/profile', withAuth, async (req, res) => {
   try {
     // Find the logged in user based on the session ID
     const userData = await User.findByPk(req.session.user_id, {
       attributes: { exclude: ['password'] },
-      include: [{ model: Pets }],
+      include: [{ model: Pet }],
     });
 
     const user = userData.get({ plain: true });
@@ -80,6 +80,16 @@ router.get('/login', (req, res) => {
   }
 
   res.render('login');
+});
+
+// route to render update profile
+router.get('/user/edit/:id', withAuth, async (req, res) => {
+  try {
+    res.render('update-profile', { id: req.params.id });
+  } catch (err) {
+    console.log({ error: err })
+    res.status(500).json(err); 
+  }
 });
 
 module.exports = router;

@@ -4,45 +4,42 @@
   </div>
 </div>
 
-<div class="row mt-4">
-  <div class="col-md-6">
-    <h3>Create a New Project:</h3>
+<div class="flex min-h-full items-center justify-center py-12 px-4 sm:px-6 lg:px-8">
+  <div class="w-full max-w-md space-y-8">
 
-    <form class="form new-project-form">
-      <div class="form-group">
-        <label for="project-name">project name:</label>
-        <input class="form-input" type="text" id="project-name" name="project-name" />
-      </div>
-      <div class="form-group">
-        <label for="project-funding">needed funding ($):</label>
-        <input class="form-input" type="number" id="project-funding" name="project-funding" />
-      </div>
-      <div class="form-group">
-        <label for="project-desc">description:</label>
-        <textarea class="form-input" id="project-desc" name="project-desc"></textarea>
-      </div>
-      <div class="form-group">
-        <button type="submit" class="btn btn-primary">Create</button>
-      </div>
-    </form>
-  </div>
+    <h2 class="mt-6 text-center text-3xl font-bold tracking-tight text-blue-500">Pet's Parent's Information</h2>
 
-  {{#if projects.length}}
-  <div class="col-md-6 project-list">
-    <h3>Current Projects:</h3>
+    <div>
+      <p>Name: {{name}}</p>
+      <p>Parent's email: {{email}}</p>
+      <p>Phone #: {{phone_number}}</p>
+    </div>
+    <button id="update-pet-btn" class="btn btn-sm btn-danger" data-id="{{id}}">
+      <a href="/user/edit/{{id}}">UPDATE PROFILE</a>
+    </button>
 
-    {{#each projects as |project|}}
+    {{#each pets as |pet|}}
     <div class="row mb-2">
       <div class="col-md-8">
-        <h4><a href="/project/{{project.id}}">{{project.name}}</a></h4>
+        <h4><a href="/pet/{{pet.id}}">{{pet.name}}</a></h4>
       </div>
+      {{!-- <div>
+        this is reserved for the image that needs to be rendered
+      </div> --}}
       <div class="col-md-4">
-        <button class="btn btn-sm btn-danger" data-id="{{project.id}}">DELETE</button>
+        <button id="update-pet-btn" class="btn btn-sm btn-danger" data-id="{{pet.id}}">
+          <a href="/pet/{{pet.id}}">UPDATE PET</a>
+        </button>
+        <button id="delete-pet-btn" class="btn btn-sm btn-danger" data-id="{{pet.id}}">
+          <a href="/pet/{{pet.id}}">DELETE</a>
+        </button>
       </div>
     </div>
     {{/each}}
-  </div>
-  {{/if}}
-</div>
 
-<script src="./js/profile.js"></script>
+    <button id="delete-pet-btn" class="btn btn-sm btn-danger" data-id="{{pet.id}}">
+      <a href="/pet/{{pet.id}}">ADD PET</a>
+    </button>
+
+
+    <script src="./js/profile.js"></script>
