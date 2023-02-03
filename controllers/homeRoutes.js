@@ -10,7 +10,7 @@ router.get('/', async (req, res) => {
     const petData = await Pet.findAll({
       include: [
         {
-          model: User, 
+          model: User,
           attributes: ['name'],
         },
       ],
@@ -20,8 +20,8 @@ router.get('/', async (req, res) => {
     const pets = petData.map((pet) => pet.get({ plain: true }));
 
     // Pass serialized data and session flag into template
-    res.render('homepage', { 
-      pets, 
+    res.render('homepage', {
+      pets,
       logged_in: req.session.logged_in 
     });
   } catch (err) {
