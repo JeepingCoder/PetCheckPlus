@@ -47,7 +47,14 @@ router.get("/login", (req, res) => {
 // route to render update profile
 router.get('/user/edit/:id', withAuth, async (req, res) => {
   try {
-    res.render('update-profile', { id: req.params.id });
+    const userData = await User.findByPk(req.session.user_id,);
+    const user = userData.get({ plain: true });
+
+    res.render('update-profile', {
+      ...user,
+      logged_in: req.session.logged_in
+    });
+    // res.render('update-profile', user);
   } catch (err) {
     console.log({ error: err })
     res.status(500).json(err); 

@@ -2,19 +2,16 @@
   {
     "name": "Sal",
     "email": "sal@hotmail.com",
-    "password": "password12345",
-    "phone_number": "9876543210"
+    "password": "password12345"
   },
   {
     "name": "Lernantino",
     "email": "lernantino@gmail.com",
-    "password": "password12345",
-    "phone_number": "4658559654"
+    "password": "password12345"
   },
   {
     "name": "Amiko",
     "email": "amiko2k20@aol.com",
-    "password": "password12345",
-    "phone_number": "9999999998"
+    "password": "password12345"
   }
 ]

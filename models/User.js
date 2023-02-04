@@ -35,13 +35,6 @@ User.init(
         len: [5],
       },
     },
-    phone_number: {
-      type: DataTypes.STRING,
-      allowNull: true,
-      validate: {
-        isNumeric: true,
-      },
-    },
   },
   {
     hooks: {
