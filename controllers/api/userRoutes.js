@@ -1,48 +1,52 @@
-const router = require('express').Router();
-const { User, Pet, Record } = require('../../models');
-const withAuth = require('../../utils/auth');
+const router = require("express").Router();
+const { User } = require("../../models");
+const withAuth = require("../../utils/auth");
 
-// Get all users 
-router.get('/', /* withAuth, */ async (req, res) => {
-  try {
-    const userData = await User.findAll({
-      attributes: { exclude: ['password'] },
-      order: [['name', 'ASC']],
-    });
+// Get all users
+router.get(
+  "/",
+  /* withAuth, */ async (req, res) => {
+    try {
+      const userData = await User.findAll({
+        attributes: { exclude: ["password"] },
+        order: [["name", "ASC"]],
+      });
 
-    // Serialize user data so templates can read it
-    const users = userData.map((user) => user.get({ plain: true }));
+      // Serialize user data so templates can read it
+      // const users = userData.map((user) => user.get({ plain: true }));
 
-    // Pass serialized data into Handlebars.js template
-    res.render('homepage', { users });
-  } catch (err) {
-    res.status(500).json(err);
+      // Pass serialized data into Handlebars.js template
+      // res.render(/* 'homepage', */ { users });
+      res.status(200).json(userData);
+    } catch (err) {
+      res.status(500).json(err);
+    }
   }
-});
+);
 
 // Get one user
-router.get("/:id", /* withAuth, */ async (req, res) => {
+router.get(
+  "/:id",
+  /* withAuth, */ async (req, res) => {
+    try {
+      const userData = await User.findByPk(req.params.id, {
+        attributes: { exclude: ["password"] },
+        order: [["name", "ASC"]],
+      });
 
-  try {
-    const userData = await User.findByPk(req.params.id, {
-      include: [
-        { model: Pet },
-        { model: Record },
-      ]
-    });
-
-    if (!userData) {
-      res.status(404).json({ message: "Id not found" });
-      return;
+      if (!userData) {
+        res.status(404).json({ message: "Id not found" });
+        return;
+      }
+      res.status(200).json(userData);
+    } catch (err) {
+      res.status(500).json(err);
     }
-    res.status(200).json(userData);
-  } catch (err) {
-    res.status(500).json(err);
   }
-});
+);
 
 // Create new user
-router.post('/', async (req, res) => {
+router.post("/", async (req, res) => {
   try {
     const userData = await User.create(req.body);
 
@@ -72,14 +76,14 @@ router.put('/update/:id', async (req, res) => {
 });
 
 // Login
-router.post('/login', async (req, res) => {
+router.post("/login", async (req, res) => {
   try {
     const userData = await User.findOne({ where: { email: req.body.email } });
 
     if (!userData) {
       res
         .status(400)
-        .json({ message: 'Incorrect email or password, please try again' });
+        .json({ message: "Incorrect email or password, please try again" });
       return;
     }
 
@@ -88,7 +92,7 @@ router.post('/login', async (req, res) => {
     if (!validPassword) {
       res
         .status(400)
-        .json({ message: 'Incorrect email or password, please try again' });
+        .json({ message: "Incorrect email or password, please try again" });
       return;
     }
 
@@ -96,61 +100,67 @@ router.post('/login', async (req, res) => {
       req.session.user_id = userData.id;
       req.session.logged_in = true;
 
-      res.json({ user: userData, message: 'You are now logged in!' });
+      res.json({ user: userData, message: "You are now logged in!" });
     });
-
   } catch (err) {
     res.status(400).json(err);
   }
 });
 
 // Logout
-router.post('/logout', (req, res) => {
+router.post("/logout", (req, res) => {
   if (req.session.logged_in) {
     req.session.destroy(() => {
       res.status(204).end();
+      console.log("Successfully logged out!");
     });
   } else {
     res.status(404).end();
   }
 });
 
-// // Update user
-// router.put("/:id", /* withAuth, */ async (req, res) => {
-//   // update a category by its `id` value
-//   try {
-//     const userData = await User.update(req.body, {
-//       where: {
-//         id: req.params.id,
-//       },
-//     });
-//     if (!userData) {
-//       res.status(404).json({ message: "Id not found" });
-//       return;
-//     }
-//   } catch (err) {
-//     res.status(500).json(err);
-//   }
-// });
+// Update user
+router.put(
+  "/:id",
+  /* withAuth, */ async (req, res) => {
+    // update a category by its `id` value
+    try {
+      const userData = await User.update(req.body, {
+        where: {
+          id: req.params.id,
+        },
+      });
+      if (!userData) {
+        res.status(404).json({ message: "Id not found" });
+        return;
+      }
+    } catch (err) {
+      res.status(500).json(err);
+    }
+  }
+);
 
 // Delete user
-router.delete("/:id", /* withAuth, */ async (req, res) => {
-  // delete a category by its `id` value
-  try {
-    const userData = await User.destroy({
-      where: {
-        id: req.params.id,
-      },
-    });
-    if (!userData) {
-      res.status(404).json({ message: "Id not found" });
-      return;
-    }
+router.delete(
+  "/:id",
+  /* withAuth, */ async (req, res) => {
+    // delete a category by its `id` value
+    try {
+      const userData = await User.destroy({
+        where: {
+          id: req.params.id,
+        },
+      });
+      if (!userData) {
+        res.status(404).json({ message: "Id not found" });
+        return;
+      }
 
-    res.status(200).json(userData);
-  } catch (err) {
-    res.status(500).json(err);
+      res.status(200).json(userData);
+    } catch (err) {
+      res.status(500).json(err);
+    }
   }
-});
+);
 
 module.exports = router;
