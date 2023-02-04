@@ -19,7 +19,7 @@
       <a href="/user/edit/{{id}}">UPDATE PROFILE</a>
     </button>
 
-    
+    {{#each pets as |pet|}}
     <div class="row mb-2">
       <div class="col-md-8">
         <h4><a href="/pet/{{pet.id}}">{{pet.name}}</a></h4>
@@ -28,15 +28,15 @@
         this is reserved for the image that needs to be rendered
       </div> --}}
       <div class="col-md-4">
-        <button id="update-pet-btn" class="border-2 rounded  border-neutral-400  bg-blue-400 font-medium text-neutral-700 hover:text-indigo-600" data-id="{{pet.id}}">
+        <button class="update-pet-btn" class="border-2 rounded  border-neutral-400  bg-blue-400 font-medium text-neutral-700 hover:text-indigo-600" data-id="{{pet.id}}">
           <a href="/pet/{{pet.id}}">UPDATE PET</a>
         </button>
-        <button id="delete-pet-btn" class="border-2 rounded  border-neutral-400  bg-blue-400 font-medium text-neutral-700 hover:text-indigo-600" data-id="{{pet.id}}">
-          <a href="/pet/{{pet.id}}">DELETE</a>
+        <button class="delete-pet-btn" class="border-2 rounded  border-neutral-400  bg-blue-400 font-medium text-neutral-700 hover:text-indigo-600" data-id="{{pet.id}}">
+          DELETE
         </button>
       </div>
     </div>
-    
+    {{/each}}
 
     <section>
       <button id="add-pet-btn" class="border-2 rounded  border-neutral-400  bg-blue-400 font-medium text-neutral-700 hover:text-indigo-600" data-id="{{pet.id}}">
