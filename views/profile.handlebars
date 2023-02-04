@@ -39,7 +39,7 @@
     
 
     <section>
-      <button id="add-pet-btn" class="btn btn-sm btn-danger" data-id="{{pet.id}}">
+      <button id="add-pet-btn" class="border-2 rounded  border-neutral-400  bg-blue-400 font-medium text-neutral-700 hover:text-indigo-600" data-id="{{pet.id}}">
         ADD PET
       </button>
 
@@ -49,30 +49,36 @@
 
 
 
-            <h2 class="mt-6 text-center text-3xl font-bold tracking-tight text-blue-500">Pet's Parent's Information</h2>
+            <h2 class="mt-6 text-center text-3xl font-bold tracking-tight text-blue-500">Pet's Information</h2>
 
             <div>
               <form class="mt-4" action="/upload" method="POST" enctype="multipart/form-data">
                 <br>
-                <label for="email-signup" class="sr-only">Pet Name</label>
-                <input id="email-signup" name="email-signup" type="email-signup" autocomplete="email-signup" required
+                <label for="Pet Name" class="sr-only">Pet Name</label>
+                <input id="Pet Name" name="Pet Name" type="text" autocomplete="Pet Name" required
                   class="relative block w-full appearance-none rounded border border-gray-300 px-3 py-2 text-gray-900 placeholder-gray-500 focus:z-10 focus:border-indigo-500 focus:outline-none focus:ring-indigo-500 sm:text-sm"
-                  placeholder="Email address">
+                  placeholder="Pet Name">
             </div>
             <br>
             <div>
-              <label for="password-signup" class="sr-only">Species</label>
-              <input id="password-signup" name="password-signup" type="password-signup" autocomplete="current-password"
-                required
-                class="relative block w-full appearance-none rounded border border-gray-300 px-3 py-2 text-gray-900 placeholder-gray-500 focus:z-10 focus:border-indigo-500 focus:outline-none focus:ring-indigo-500 sm:text-sm"
-                placeholder="Password">
+              <label for="Species" class="relative w-full appearance-none rounded border border-gray-300 px-3 py-2 text-gray-900 placeholder-gray-500 focus:z-10 focus:border-indigo-500 focus:outline-none focus:ring-indigo-500 sm:text-sm">Species</label>
+              <select name="Species" id="species">
+              <option value="dog">Dog</option>
+              <option value="cat">Cat</option>
+              <option value="bird">Bird</option>
+              <option value="reptile">Reptile</option>
+              <option value="amphibian">Amphibian</option>
+              <option value="bug">Insect/Arachnid</option>
+              <option value="other">Other</option>
+              </select>
             </div>
             <br>
             <div>
-              <label for="name-signup" class="sr-only">Gender</label>
-              <input id="name-signup" name="name-signup" type="FirstName" required
-                class="relative block w-full appearance-none rounded border border-gray-300 px-3 py-2 text-gray-900 placeholder-gray-500 focus:z-10 focus:border-indigo-500 focus:outline-none focus:ring-indigo-500 sm:text-sm"
-                placeholder="Pet's Parent Full Name">
+              <label for="gender" class="relative w-full appearance-none rounded border border-gray-300 px-3 py-2 text-gray-900 placeholder-gray-500 focus:z-10 focus:border-indigo-500 focus:outline-none focus:ring-indigo-500 sm:text-sm">Gender</label>
+              <select name="gender" id="gender">
+              <option value="male">Male</option>
+              <option value="female">Female</option>
+              </select>
             </div>
             <br>
 
