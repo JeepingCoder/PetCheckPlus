@@ -69,7 +69,7 @@ router.put("/:id",/* withAuth, */ async (req, res) => {
 );
 
 // Delete Pet
-router.delete("/:id",/* withAuth, */ async (req, res) => {
+router.delete("/delete/:id", withAuth, async (req, res) => {
     try {
       const petData = await Pet.destroy({
         where: {
