@@ -1,8 +1,8 @@
 <title>DASHBOARD</title>
 
 <div class="row">
-  <div class="text-center">
-    <h2>Welcome, {{name}}!</h2>
+  <div class="text-center pt-5">
+    <h2 class="text-3xl font-semibold whitespace-nowrap text-blue-500">Welcome, {{name}}!</h2>
   </div>
 </div>
 
@@ -61,8 +61,9 @@
             </div>
             <br>
             <div>
-              <label for="Species" class="relative w-full appearance-none rounded border border-gray-300 px-3 py-2 text-gray-900 placeholder-gray-500 focus:z-10 focus:border-indigo-500 focus:outline-none focus:ring-indigo-500 sm:text-sm">Species</label>
-              <select name="Species" id="species">
+              <label for="Species">Species</label>
+              <select name="Species" id="species" class="inline-block w-full leading-5 relative py-3 pl-3 pr-8 rounded text-gray-900 bg-white border border-gray-300 overflow-x-auto focus:outline-none focus:border-gray-400 focus:ring-0 select-caret appearance-none">
+              <option selected>--Select</option>
               <option value="dog">Dog</option>
               <option value="cat">Cat</option>
               <option value="bird">Bird</option>
@@ -74,8 +75,9 @@
             </div>
             <br>
             <div>
-              <label for="gender" class="relative w-full appearance-none rounded border border-gray-300 px-3 py-2 text-gray-900 placeholder-gray-500 focus:z-10 focus:border-indigo-500 focus:outline-none focus:ring-indigo-500 sm:text-sm">Gender</label>
-              <select name="gender" id="gender">
+              <label for="gender">Gender</label>
+              <select name="gender" id="gender" class="inline-block w-full leading-5 relative py-3 pl-3 pr-8 rounded text-gray-900 bg-white border border-gray-300 overflow-x-auto focus:outline-none focus:border-gray-400 focus:ring-0 select-caret appearance-none">
+              <option selected>--Select</option>
               <option value="male">Male</option>
               <option value="female">Female</option>
               </select>
