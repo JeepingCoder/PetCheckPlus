@@ -111,7 +111,7 @@ router.post("/login", async (req, res) => {
 router.post("/logout", (req, res) => {
   if (req.session.logged_in) {
     req.session.destroy(() => {
-      res.status(204).end();
+      res.status(204).render("homepage");
       console.log("Successfully logged out!");
     });
   } else {
@@ -120,25 +120,23 @@ router.post("/logout", (req, res) => {
 });
 
 // Update user
-router.put(
-  "/:id",
-  /* withAuth, */ async (req, res) => {
-    // update a category by its `id` value
-    try {
-      const userData = await User.update(req.body, {
-        where: {
-          id: req.params.id,
-        },
-      });
-      if (!userData) {
-        res.status(404).json({ message: "Id not found" });
-        return;
-      }
-    } catch (err) {
-      res.status(500).json(err);
+router.put("/:id", /* withAuth, */ async (req, res) => {
+  try {
+    const [affectedRows] = await User.update(req.body, {
+      where: {
+        id: req.params.id,
+      },
+    });
+    if (affectedRows > 0) {
+      res.status(200).end();
+    } else {
+      res.status(404).end();
     }
+
+  } catch (err) {
+    res.status(500).json(err);
   }
-);
+});
 
 // Delete user
 router.delete(

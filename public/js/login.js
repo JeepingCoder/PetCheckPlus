@@ -16,7 +16,7 @@ const loginFormHandler = async (event) => {
 
     if (response.ok) {
       // If successful, redirect the browser to the homepage
-      document.location.replace('/');
+      document.location.replace('/profile');
     } else {
 
       alert("User " + response.statusText + " Incorrect email or password, please try again");

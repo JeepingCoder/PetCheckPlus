@@ -4,7 +4,6 @@ const updateProfileHandler = async (event) => {
   const name = document.querySelector('#updated-name').value.trim();
   const email = document.querySelector('#updated-email').value.trim();
   const password = document.querySelector('#updated-password').value.trim();
-  // const phoneNumber = document.querySelector('#updated-phone-number').value.trim();
   const id = document.querySelector('#update-profile-btn').dataset?.id
   console.log(id)
   if (id) {
@@ -16,8 +15,8 @@ const updateProfileHandler = async (event) => {
 
 
     if (response.ok) {
-      // document.location.replace('/profile');
-      alert('Update successful')
+      document.location.replace('/profile');
+      // alert('Update successful')
     } else {
       alert('Failed to update profile');
     }
