@@ -1,3 +1,8 @@
+const newPetForm = document.querySelector('#addPetForm')
+
+newPetForm.addEventListener('click', function () {
+  newPetForm.classList.toggle('visible');
+});
 
 const delButtonHandler = async (event) => {
   if (event.target.hasAttribute('data-id')) {
@@ -16,5 +21,11 @@ const delButtonHandler = async (event) => {
 };
 
 document
+  .getElementById('add-pet-btn')
+  .addEventListener('click', addPetHandler);
+
+document
   .getElementById('delete-pet-btn')
   .addEventListener('click', delButtonHandler);
+  
+
