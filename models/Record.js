@@ -16,7 +16,7 @@ Record.init(
       type: DataTypes.STRING,
     },
     birth_date: {
-      type: DataTypes.DATE,
+      type: DataTypes.DATEONLY,
     },
     weight: {
       type: DataTypes.INTEGER,
