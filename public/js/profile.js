@@ -1,14 +1,19 @@
-const newPetForm = document.querySelector('#addPetForm')
+// const newPetForm = document.querySelector('#addPetForm')
 
-newPetForm.addEventListener('click', function () {
-  newPetForm.classList.toggle('visible');
-});
+// newPetForm.addEventListener('click', function () {
+//   newPetForm.classList.toggle('visible');
+// });
+const addPetHandler = async (event) => {
+  const newPetForm = document.querySelector('#addPetForm')
+  newPetForm.classList.toggle('invisible');
+}
+
 
 const delButtonHandler = async (event) => {
   if (event.target.hasAttribute('data-id')) {
     const id = event.target.getAttribute('data-id');
 
-    const response = await fetch(`/api/pet/${id}`, {
+    const response = await fetch(`/api/pet/delete/${id}`, {
       method: 'DELETE',
     });
 
