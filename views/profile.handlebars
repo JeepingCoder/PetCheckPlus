@@ -1,7 +1,7 @@
 <title>DASHBOARD</title>
 
 <div class="row">
-  <div class="col-auto">
+  <div class="text-center">
     <h2>Welcome, {{name}}!</h2>
   </div>
 </div>
@@ -10,16 +10,15 @@
   <div class="w-full max-w-md space-y-8">
 
     <h2 class="mt-6 text-center text-3xl font-bold tracking-tight text-blue-500">Pet's Parent's Information</h2>
-    {{#each user as |User|}}
     <div>
       <p>Name: {{user.name}}</p>
-      <p>Parent's email: {{user.email}}</p>
+      <p class="pt-2">Email: {{user.email}}</p>
     </div>
-    <button id="update-pet-btn" class="btn btn-sm btn-danger" data-id="{{id}}">
+    <button id="update-pet-btn" class="border-2 rounded  border-neutral-400  bg-blue-400 font-medium text-neutral-700 hover:text-indigo-600" data-id="{{id}}">
       <a href="/user/edit/{{id}}">UPDATE PROFILE</a>
     </button>
 
-    {{#each pets as |pet|}}
+    
     <div class="row mb-2">
       <div class="col-md-8">
         <h4><a href="/pet/{{pet.id}}">{{pet.name}}</a></h4>
@@ -28,19 +27,19 @@
         this is reserved for the image that needs to be rendered
       </div> --}}
       <div class="col-md-4">
-        <button id="update-pet-btn" class="btn btn-sm btn-danger" data-id="{{pet.id}}">
+        <button id="update-pet-btn" class="border-2 rounded  border-neutral-400  bg-blue-400 font-medium text-neutral-700 hover:text-indigo-600" data-id="{{pet.id}}">
           <a href="/pet/{{pet.id}}">UPDATE PET</a>
         </button>
-        <button id="delete-pet-btn" class="btn btn-sm btn-danger" data-id="{{pet.id}}">
+        <button id="delete-pet-btn" class="border-2 rounded  border-neutral-400  bg-blue-400 font-medium text-neutral-700 hover:text-indigo-600" data-id="{{pet.id}}">
           <a href="/pet/{{pet.id}}">DELETE</a>
         </button>
       </div>
     </div>
-    {{/each}}
+    
 
     <section>
-      <button id="add-pet-btn" class="btn btn-sm btn-danger" data-id="{{pet.id}}">
-      <a href="/pet/{{pet.id}}">ADD PET</a>
+      <button id="add-pet-btn" class="border-2 rounded  border-neutral-400  bg-blue-400 font-medium text-neutral-700 hover:text-indigo-600" data-id="{{pet.id}}">
+      ADD PET</a>
       </button>
 
       <div class="invisible" id="addPetForm">

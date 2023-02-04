@@ -15,19 +15,12 @@ router.get(
       // Serialize user data so templates can read it
       // const users = userData.map((user) => user.get({ plain: true }));
 
-<<<<<<< Updated upstream
       // Pass serialized data into Handlebars.js template
       // res.render(/* 'homepage', */ { users });
       res.status(200).json(userData);
     } catch (err) {
       res.status(500).json(err);
     }
-=======
-    // Pass serialized data into Handlebars.js template
-    res.status(200).json(users);
-  } catch (err) {
-    res.status(500).json(err);
->>>>>>> Stashed changes
   }
 );
 
@@ -127,7 +120,6 @@ router.post("/logout", (req, res) => {
 });
 
 // Update user
-<<<<<<< Updated upstream
 router.put(
   "/:id",
   /* withAuth, */ async (req, res) => {
@@ -147,31 +139,6 @@ router.put(
     }
   }
 );
-=======
-router.put("/:id", /* withAuth, */ async (req, res) => {
-  // update a category by its `id` value
-  try {
-    const [affectedRows] = await User.update(req.body, {
-      where: {
-        id: req.params.id,
-      },
-    });
-    if (affectedRows > 0) {
-      res.status(200).end();
-    } else {
-      res.status(404).end();
-    }
-    // if (!userData) {
-    //   res.status(404).json({ message: "Id not found" });
-    //   return;
-    // }
-    // const user = userData.get({plain:true});
-    // res.status(200).json(user);
-  } catch (err) {
-    res.status(500).json(err);
-  }
-});
->>>>>>> Stashed changes
 
 // Delete user
 router.delete(
