@@ -1,21 +1,18 @@
 <h3>Update Your Profile!!</h3>
 
 <form class="p-2">
-    <label for="email-signup">Email</label>
-    <input id="updated-email" name="email-signup" type="email-signup" autocomplete="email-signup" required
+    <label for="email-signup">Email:</label>
+    <input id="updated-email" name="email-signup" value="{{email}}" type="email-signup" autocomplete="email-signup" required
         class="relative block w-full appearance-none rounded border border-gray-300 px-3 py-2 text-gray-900 placeholder-gray-500 focus:z-10 focus:border-indigo-500 focus:outline-none focus:ring-indigo-500 sm:text-sm">
 
-    <label for="password-signup">Password</label>
+    <label for="password-signup">Password:</label>
     <input id="updated-password" name="password-signup" type="password-signup" required
         class="relative block w-full appearance-none rounded border border-gray-300 px-3 py-2 text-gray-900 placeholder-gray-500 focus:z-10 focus:border-indigo-500 focus:outline-none focus:ring-indigo-500 sm:text-sm">
 
-    <label for="name-signup">Name</label>
-    <input id="updated-name" name="name-signup" type="FirstName" required
+    <label for="name-signup">Name:</label>
+    <input id="updated-name" name="name-signup" value="{{name}}" type="FirstName" required
         class="relative block w-full appearance-none rounded border border-gray-300 px-3 py-2 text-gray-900 placeholder-gray-500 focus:z-10 focus:border-indigo-500 focus:outline-none focus:ring-indigo-500 sm:text-sm">
     
-    <label for="updated-phone-number">Phone Number</label>
-    <input id="updated-phone-number" name="updated-phone-number" type="phoneNumber" required
-        class="relative block w-full appearance-none rounded border border-gray-300 px-3 py-2 text-gray-900 placeholder-gray-500 focus:z-10 focus:border-indigo-500 focus:outline-none focus:ring-indigo-500 sm:text-sm">
     <button id="update-profile-btn" data-id="{{id}}">
         <div class="text-lg p-2" >
             <a href="#"
