@@ -13,7 +13,7 @@ router.get("/",/* withAuth, */ async (req, res) => {
 );
 
 // Use withAuth middleware to prevent access to route
-router.get("/profile",/* withAuth, */ async (req, res) => {
+router.get("/profile", withAuth, async (req, res) => {
     try {
       const userData = await User.findByPk(req.session.user_id, {
         attributes: { exclude: ['password'] },
@@ -21,10 +21,7 @@ router.get("/profile",/* withAuth, */ async (req, res) => {
       });
   
       const user = userData.get({ plain: true });
-      // res.render('profile', {
-      //   ...user,
-      //   logged_in: req.session.logged_in
-      // });
+
     if (req.session.logged_in) {
       res.render('profile', {
         ...user,
