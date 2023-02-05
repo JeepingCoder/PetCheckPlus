@@ -80,8 +80,7 @@
   {{#if logged_in}}
   <script>
       const logout = async () => {
-      console.log("I tried to logout")
-      const response = await fetch('http://localhost:3001/api/user/logout', {
+      const response = await fetch(`${this.window.location.origin}/api/user/logout`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
       });
