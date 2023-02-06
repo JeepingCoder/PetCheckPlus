@@ -24,7 +24,7 @@ Image.init(
         pet_id: {
             type: DataTypes.INTEGER,
             references: {
-                model: "Pet",
+                model: "pets",
                 key: "id",
         
             }

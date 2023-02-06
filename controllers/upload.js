@@ -2,7 +2,7 @@ const fs = require("fs");
 
 const db = require("../models");
 
-const Image = db.image;
+const Image = db.Image;
 
 console.log(Image);
 const uploadFiles = async (req, res) => {
@@ -25,7 +25,7 @@ const uploadFiles = async (req, res) => {
         image.data
       );
 
-      return res.send(`File has been uploaded.`);
+      return res.redirect('/profile');
     });
   } catch (error) {
     console.log(error);
