@@ -53,6 +53,8 @@ David McWhirter
 Ethan Quinlan
 Patrick Ingram 
 
+Multer setup was gotten from https://www.bezkoder.com/node-js-upload-image-mysql/
+
 Our inspiration was simply being pet owners and the need for a quick organized way of finding our pet or multiple pets information for quick refrence. 
 
 This project was made possible by our instructor Andrew Bautista and teaching staff. 

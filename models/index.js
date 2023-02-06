@@ -1,6 +1,7 @@
 const User = require('./User');
 const Pet = require('./Pet');
 const Record = require('./Record');
+const Image = require('./image');
 
 User.hasMany(Pet, {
   foreignKey: 'user_id',
@@ -20,4 +21,14 @@ Record.belongsTo(Pet, {
   foreignKey: 'animal_id'
 });
 
-module.exports = { User, Pet, Record };
+Pet.hasOne(Image, {
+  foreignKey: 'pet_id'
+});
+
+Image.hasOne(Pet, {
+  foreignKey: 'pet_id',
+});
+
+
+
+module.exports = { User, Pet, Record, Image };
