@@ -9,9 +9,9 @@ const uploadFiles = async (req, res) => {
   try {
     console.log(req.file);
 
-    if (req.file === undefined) {
-      return res.send(`You must select a file.`);
-    }
+    // if (req.file === undefined) {
+    //   return res.send(`You must select a file.`);
+    // }
 
     Image.create({
       type: req.file.mimetype,
@@ -25,7 +25,7 @@ const uploadFiles = async (req, res) => {
         image.data
       );
 
-      return res.redirect('/profile');
+      return res.redirect(`/profile`);
     });
   } catch (error) {
     console.log(error);
