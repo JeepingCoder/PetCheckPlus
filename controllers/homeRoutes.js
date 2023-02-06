@@ -40,6 +40,8 @@ router.get("/profile", withAuth, async (req, res) => {
   }
 );
 
+
+
 router.get("/login", (req, res) => {
   // If the user is already logged in, redirect the request to another route
   if (req.session.logged_in) {
@@ -71,6 +73,24 @@ router.get('/user/edit/:id', withAuth, async (req, res) => {
 });
 
 router.post("/upload", upload.single("file"), uploadController.uploadFiles);
+
+
+router.get('/pet/edit/:id', withAuth, async (req, res) => {
+  try {
+    const petData = await Pet.findByPk(req.session.user_id,);
+    const pet = petData.get({ plain: true });
+
+    res.render('update-pet', {
+      ...pet,
+      logged_in: req.session.logged_in
+    });
+    // res.render('update-profile', user);
+  } catch (err) {
+    console.log({ error: err })
+    res.status(500).json(err); 
+  }
+});
+
 
 
 module.exports = router;

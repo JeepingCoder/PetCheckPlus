@@ -20,6 +20,7 @@ Record.init(
     },
     weight: {
       type: DataTypes.INTEGER,
+     
     },
     vaccinations: {
       type: DataTypes.STRING,
