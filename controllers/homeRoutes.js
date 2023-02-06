@@ -1,6 +1,8 @@
 const router = require("express").Router();
 const { Pet, User } = require("../models");
 const withAuth = require("../utils/auth");
+const uploadController = require("../controllers/upload");
+const upload = require("../middleware/upload");
 
 // Homepage Get route
 router.get("/",/* withAuth, */ async (req, res) => {
@@ -68,6 +70,7 @@ router.get('/user/edit/:id', withAuth, async (req, res) => {
   }
 });
 
+router.post("/upload", upload.single("file"), uploadController.uploadFiles);
 
 
 module.exports = router;

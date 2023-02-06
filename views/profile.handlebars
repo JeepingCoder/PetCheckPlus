@@ -28,10 +28,10 @@
         this is reserved for the image that needs to be rendered
       </div> --}}
       <div class="col-md-4">
-        <button class="update-pet-btn" class="border-2 rounded  border-neutral-400  bg-blue-400 font-medium text-neutral-700 hover:text-indigo-600" data-id="{{pet.id}}">
+        <button id="update-pet-btn" class="border-2 rounded  border-neutral-400  bg-blue-400 font-medium text-neutral-700 hover:text-indigo-600" data-id="{{pet.id}}">
           <a href="/pet/{{pet.id}}">UPDATE PET</a>
         </button>
-        <button class="delete-pet-btn" class="border-2 rounded  border-neutral-400  bg-blue-400 font-medium text-neutral-700 hover:text-indigo-600" data-id="{{pet.id}}">
+        <button id="delete-pet-btn" class="border-2 rounded  border-neutral-400  bg-blue-400 font-medium text-neutral-700 hover:text-indigo-600" data-id="{{pet.id}}">
           DELETE
         </button>
       </div>
@@ -55,14 +55,14 @@
               <form class="mt-4" action="/upload" method="POST" enctype="multipart/form-data">
                 <br>
                 <label for="Pet Name" class="sr-only">Pet Name</label>
-                <input id="Pet Name" name="Pet Name" type="text" autocomplete="Pet Name" required
+                <input id="name" name="Pet Name" type="text" autocomplete="Pet Name" required
                   class="relative block w-full appearance-none rounded border border-gray-300 px-3 py-2 text-gray-900 placeholder-gray-500 focus:z-10 focus:border-indigo-500 focus:outline-none focus:ring-indigo-500 sm:text-sm"
                   placeholder="Pet Name">
             </div>
             <br>
             <div>
-              <label for="Species">Species</label>
-              <select name="Species" id="species" class="inline-block w-full leading-5 relative py-3 pl-3 pr-8 rounded text-gray-900 bg-white border border-gray-300 overflow-x-auto focus:outline-none focus:border-gray-400 focus:ring-0 select-caret appearance-none">
+              <label for="animal_type">Species</label>
+              <select name="animal_type" id="animal_type" class="inline-block w-full leading-5 relative py-3 pl-3 pr-8 rounded text-gray-900 bg-white border border-gray-300 overflow-x-auto focus:outline-none focus:border-gray-400 focus:ring-0 select-caret appearance-none">
               <option selected>--Select</option>
               <option value="dog">Dog</option>
               <option value="cat">Cat</option>
@@ -89,9 +89,9 @@
             </div>
             <br>
             <div class=" text-lg text-center">
-              <a href="#"
-                class=" border-2 rounded  border-neutral-400 bg-blue-400  font-medium text-neutral-700 hover:text-indigo-600">Submit</a>
-              <!-- <button type="submit" class="btn btn-primary">Submit</button> -->
+              {{!-- <a href="#"
+                class=" border-2 rounded  border-neutral-400 bg-blue-400  font-medium text-neutral-700 hover:text-indigo-600">Submit</a> --}}
+              <button type="submit" class="border-2 rounded  border-neutral-400 bg-blue-400  font-medium text-neutral-700 hover:text-indigo-600">Submit</button>
               </form>
               <br>
             </div>
