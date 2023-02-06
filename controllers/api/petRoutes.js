@@ -58,19 +58,38 @@ router.post("/",/* withAuth, */ async (req, res) => {
 router.put("/:id",/* withAuth, */ async (req, res) => {
     // update a category by its `id` value
     try {
-      const petData = await Pet.update(req.body, {
+      const [affectedRows] = await Pet.update(req.body, {
         where: {
           id: req.params.id,
         },
       });
-      if (!petData) {
-        res.status(404).json({ message: "Id not found" });
-        return;
+      if (affectedRows > 0) {
+        res.status(200).end();
+      } else {
+        res.status(404).end();
       }
+  
     } catch (err) {
       res.status(500).json(err);
     }
   }
+//   try {
+//     const updatePet = await Pet.findByPk(req.params.id, {
+//       include: [{ model: User }, { model: Record }],
+//     });
+//     if (!petData) {
+//       res.status(404).json({ message: "Id not found" });
+//       return;
+//     }
+//     const pet = updatePet.get({ plain: true });
+//     res.render('pet-profile', {
+//       ...pet,
+//       logged_in: req.session.logged_in
+//     });
+//   } catch (err) {
+//     res.status(500).json(err);
+//   }
+// }
 );
 
 // Delete Pet

@@ -8,10 +8,10 @@
             <p>Name: {{name}}</p>
             <p>Animal: {{animal_type}}</p>
             <p>Gender: {{gender}}</p>
-            <p>Birthday: {{record.birth_date}}</p>
+            {{!-- <p>Birthday: {{record.birth_date}}</p>
             <p>Weight (lbs): {{record.weight}}</p>
             <p>Vaccinations: {{record.vaccinations}}</p>
-            <p>Neutered/Spayed: {{record.sterilized}}</p>
+            <p>Neutered/Spayed: {{record.sterilized}}</p> --}}
 
             <p>
                 {{#if breed}}
@@ -26,66 +26,13 @@
 
 
 
-        {{!-- <section>
-            <button id="update-pet-btn"
-                class="border-2 rounded  border-neutral-400  bg-blue-400 font-medium text-neutral-700 hover:text-indigo-600"
-                data-id="{{pet.id}}">
-                UPDATE PET
-            </button>
+        {{!-- <div class="col-md-4">
+        <button id="update-pet-btn" class="border-2 rounded  border-neutral-400  bg-blue-400 font-medium text-neutral-700 hover:text-indigo-600" data-id="{{pet.id}}">
+          <a href="/pet/edit/{{id}}">UPDATE PET</a>
+        </button> --}}
 
-            <div class="invisible" id="updatePetForm">
-                <div class="flex min-h-full items-center justify-center py-12 px-4 sm:px-6 lg:px-8">
-                    <div class="w-full max-w-md space-y-8">
-
-
-
-                        <h2 class="mt-6 text-center text-3xl font-bold tracking-tight text-blue-500">Pet's Information
-                        </h2>
-
-                        <div>
-                            <form class="mt-4" action="/upload" method="POST" enctype="multipart/form-data">
-                                <br>
-                                <label for="Pet Name" class="sr-only">Pet Name</label>
-                                <input id="Pet Name" name="Pet Name" type="text" autocomplete="Pet Name" required
-                                    class="relative block w-full appearance-none rounded border border-gray-300 px-3 py-2 text-gray-900 placeholder-gray-500 focus:z-10 focus:border-indigo-500 focus:outline-none focus:ring-indigo-500 sm:text-sm"
-                                    placeholder="Pet Name">
-                        </div>
-                        <br>
-                        <div>
-                            <label for="Species"
-                                class="relative w-full appearance-none rounded border border-gray-300 px-3 py-2 text-gray-900 placeholder-gray-500 focus:z-10 focus:border-indigo-500 focus:outline-none focus:ring-indigo-500 sm:text-sm">Species</label>
-                            <select name="Species" id="species">
-                                <option value="dog">Dog</option>
-                                <option value="cat">Cat</option>
-                                <option value="bird">Bird</option>
-                                <option value="reptile">Reptile</option>
-                                <option value="amphibian">Amphibian</option>
-                                <option value="bug">Insect/Arachnid</option>
-                                <option value="other">Other</option>
-                            </select>
-                        </div>
-                        <br>
-                        <div>
-                            <label for="gender"
-                                class="relative w-full appearance-none rounded border border-gray-300 px-3 py-2 text-gray-900 placeholder-gray-500 focus:z-10 focus:border-indigo-500 focus:outline-none focus:ring-indigo-500 sm:text-sm">Gender</label>
-                            <select name="gender" id="gender">
-                                <option value="male">Male</option>
-                                <option value="female">Female</option>
-                            </select>
-                        </div>
-                        <br>
-
-                        <div class="form-group">
-                            <input type="file" name="file" id="input-files" class="form-control-file border" />
-                        </div>
-                        <br>
-                        <div class=" text-lg text-center">
-                            <a href="#"
-                                class=" border-2 rounded  border-neutral-400 bg-blue-400  font-medium text-neutral-700 hover:text-indigo-600">Submit</a>
-                            <!-- <button type="submit" class="btn btn-primary">Submit</button> -->
-                            </form>
-                            <br>
-                        </div>
-        </section> --}}
+        
+                
+        </section>
     </div>
 

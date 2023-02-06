@@ -15,7 +15,7 @@
       <p>Name: {{name}}</p>
       <p>Email: {{email}}</p>
     </div>
-    <button id="update-pet-btn" class="border-2 rounded  border-neutral-400  bg-blue-400 font-medium text-neutral-700 hover:text-indigo-600" data-id="{{id}}">
+    <button id="update-profile-btn" class="border-2 rounded  border-neutral-400  bg-blue-400 font-medium text-neutral-700 hover:text-indigo-600" data-id="{{id}}">
       <a href="/user/edit/{{id}}">UPDATE PROFILE</a>
     </button>
 
@@ -27,11 +27,12 @@
       {{!-- <div>
         this is reserved for the image that needs to be rendered
       </div> --}}
-      <div class="col-md-4">
+     
+     <div class="col-md-4">
         <button id="update-pet-btn" class="border-2 rounded  border-neutral-400  bg-blue-400 font-medium text-neutral-700 hover:text-indigo-600" data-id="{{pet.id}}">
-          <a href="/pet/{{pet.id}}">UPDATE PET</a>
+          <a href="/pet/edit/{{id}}">UPDATE PET</a>
         </button>
-        <button id="delete-pet-btn" class="border-2 rounded  border-neutral-400  bg-blue-400 font-medium text-neutral-700 hover:text-indigo-600" data-id="{{pet.id}}">
+        <button id="delete-pet-btn" class=" border-2 rounded  border-neutral-400  bg-blue-400 font-medium text-neutral-700 hover:text-indigo-600" data-id="{{pet.id}}">
           DELETE
         </button>
       </div>
